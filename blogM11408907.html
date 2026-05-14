@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>腳尖上的藝術：西甲聯賽 | Expressionism Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Noto+Sans+TC:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'la-liga-gold': '#F5C451',
+                        'expression-red': '#E63946',
+                        'deep-navy': '#1D3557',
+                        'shadow-blue': '#457B9D',
+                        'canvas-white': '#F1FAEE',
+                        'accent-purple': '#6D597A',
+                    },
+                    fontFamily: {
+                        display: ['Outfit', 'Noto Sans TC', 'sans-serif'],
+                        body: ['Noto Sans TC', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'slide-up': 'slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #f0f0f0;
+            overflow-x: hidden;
+        }
+
+        /* Expressionist Texture Overlay */
+        .expressionist-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(230, 57, 70, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(245, 196, 81, 0.08) 0%, transparent 40%);
+            z-index: -1;
+        }
+
+        /* Glassmorphism utility */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+        }
+
+        /* Sharp, distorted borders for expressionism */
+        .distorted-card {
+            clip-path: polygon(2% 0%, 100% 0%, 98% 100%, 0% 98%);
+            transition: all 0.4s ease;
+        }
+        
+        .distorted-card:hover {
+            clip-path: polygon(0% 0%, 98% 2%, 100% 100%, 2% 98%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #F5C451 0%, #E63946 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .banner-container img {
+            width: 100%;
+            height: 70vh;
+            object-fit: cover;
+            filter: contrast(1.2) saturate(1.4) brightness(0.8);
+            mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        }
+
+        .accent-border {
+            border-left: 6px solid #E63946;
+            padding-left: 1.5rem;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0d0d0d; }
+        ::-webkit-scrollbar-thumb { background: #E63946; border-radius: 10px; }
+
+        .parallax-section {
+            perspective: 1000px;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-expression-red selection:text-white">
+
+    <div class="expressionist-bg"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center glass-panel rounded-none border-t-0 border-x-0">
+        <div class="font-display font-black text-2xl tracking-tighter text-la-liga-gold">LA LIGA <span class="text-white">ART</span></div>
+        <div class="text-xs font-display font-bold tracking-widest text-shadow-blue">STUDENT ID: M11408907</div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="relative pt-20 overflow-hidden">
+        <div class="banner-container opacity-0 animate-slide-up" style="animation-delay: 0.2s;">
+            <img src='https://opal.google/board/blobs/b50a6206-c586-4620-a01a-ae97fc8b98e2' alt='media_1' />
+        </div>
+        <div class="absolute bottom-10 left-0 w-full px-6 md:px-20 z-10">
+            <h1 class="font-display font-black text-5xl md:text-8xl mb-4 leading-tight tracking-tighter animate-slide-up" style="animation-delay: 0.4s;">
+                腳尖上的<span class="text-gradient">藝術</span>
+            </h1>
+            <p class="max-w-2xl text-lg text-gray-300 font-light italic animate-slide-up" style="animation-delay: 0.6s;">
+                帶你讀懂全世界「技術含量最高」的西甲聯賽 — 一場優雅且精確的交響樂。
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="relative px-6 md:px-20 py-20 max-w-7xl mx-auto">
+        
+        <!-- Intro Quote -->
+        <div class="mb-32 glass-panel p-8 md:p-16 relative overflow-hidden distorted-card">
+            <div class="absolute -right-20 -top-20 w-64 h-64 bg-expression-red/20 blur-[100px] rounded-full"></div>
+            <p class="text-xl md:text-3xl font-light leading-relaxed relative z-10 text-gray-200">
+                在世界足球的地圖上，如果說英超是一場充滿肌肉碰撞與速度的重金屬搖滾，那 <span class="text-la-liga-gold font-bold">西班牙甲級足球聯賽</span> 則更像是一場優雅且精確的交響樂。
+            </p>
+            <div class="mt-8 flex items-center gap-4">
+                <div class="h-[1px] w-12 bg-la-liga-gold"></div>
+                <span class="text-sm font-display tracking-widest text-la-liga-gold uppercase">Intellectual Observation</span>
+            </div>
+        </div>
+
+        <!-- Section 1: The Basics -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-32 items-center">
+            <div class="lg:col-span-7 space-y-6">
+                <h2 class="font-display font-black text-4xl md:text-6xl text-white mb-8">
+                    什麼是西甲？<br><span class="text-shadow-blue text-3xl">不只是足球，這是一場熱血派對！</span>
+                </h2>
+                <div class="prose prose-invert max-w-none text-gray-300 text-lg space-y-6">
+                    <p>對於初次接觸西甲的球迷來說，你可以把它想像成一個大型的「生存遊戲」。</p>
+                    <p>這場遊戲由 20 支球隊組成，實行殘酷又浪漫的「雙循環制」與「升降級制度」。想像一下，每支球隊每年要進行 38 場戰鬥，積分最高者奪冠，而排在隊尾的三個輸家則會被無情地踢入乙級聯賽，這就是足球世界裡的職業尊嚴。</p>
+                </div>
+            </div>
+            <div class="lg:col-span-5">
+                <div class="glass-panel p-8 distorted-card border-l-4 border-l-expression-red">
+                    <h3 class="font-display font-bold text-la-liga-gold mb-4 uppercase tracking-widest">Key Structure</h3>
+                    <ul class="space-y-4 text-sm font-light text-gray-400">
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-expression-red rounded-full"></span> 20 Professional Clubs</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-expression-red rounded-full"></span> Promotion & Relegation</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-expression-red rounded-full"></span> UCL Qualification Tiers</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-expression-red rounded-full"></span> LFP Administration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: History (Bento Grid Style) -->
+        <div class="mb-32">
+            <h2 class="font-display font-black text-4xl text-center mb-16">穿越時空看西甲 <span class="text-expression-red block text-xl mt-2 tracking-[0.5em]">HISTORICAL EVOLUTION</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="md:col-span-2 glass-panel p-8 flex flex-col justify-end min-h-[300px] border-b-4 border-b-la-liga-gold hover:translate-y-[-10px] transition-transform">
+                    <h4 class="text-3xl font-bold mb-4">1929: 起源之戰</h4>
+                    <p class="text-gray-400">首屆西甲僅有 10 支隊伍。雖然現在皇馬是常勝將軍，但第一個冠軍其實是由巴塞隆納奪得的。</p>
+                </div>
+                <div class="glass-panel p-8 bg-expression-red/10 border-t-4 border-t-expression-red hover:translate-y-[-10px] transition-transform">
+                    <h4 class="text-2xl font-bold mb-4">皇馬的王者之氣</h4>
+                    <p class="text-sm text-gray-400">1950 年代，迪史提法諾（Di Stéfano）開啟了全球範圍內的統治力。</p>
+                </div>
+                <div class="glass-panel p-8 bg-shadow-blue/10 border-l-4 border-l-shadow-blue hover:translate-y-[-10px] transition-transform">
+                    <h4 class="text-2xl font-bold mb-4">巴薩的戰術革命</h4>
+                    <p class="text-sm text-gray-400">1990 年代，克魯伊夫將「全面足球」的種子播撒，演變成了 Tiki-taka。</p>
+                </div>
+                <div class="md:col-span-2 glass-panel p-8 flex flex-col justify-center items-center text-center relative overflow-hidden group hover:translate-y-[-10px] transition-transform">
+                    <div class="absolute inset-0 bg-gradient-to-r from-la-liga-gold/5 to-expression-red/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <h4 class="text-4xl font-black text-gradient mb-2">絕代雙驕 黃金十年</h4>
+                    <p class="text-gray-400 max-w-md">梅西與 C 羅的巔峰對決。不僅是競爭，更是兩種極致天賦的對視。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Technical Prowess -->
+        <div class="mb-32 relative">
+            <div class="absolute -left-20 top-0 text-[10rem] font-black opacity-[0.03] select-none pointer-events-none uppercase">Technical</div>
+            <div class="accent-border mb-12">
+                <h2 class="font-display font-black text-4xl md:text-5xl">為什麼西甲這麼香？</h2>
+                <p class="text-la-liga-gold font-bold tracking-widest mt-2 uppercase">The Masterclass of Control</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg text-gray-300 leading-relaxed">
+                <p>關鍵在於「技術」。西甲拒絕毫無意義的身體碰撞。在這裡，球員的個人素質極其細膩，傳球的弧線、停球的力道、跑動的意識，都像經過精密計算。</p>
+                <p>此外，西甲球隊在國際賽場上的表現堪稱「外戰幻神」。當人們在爭論誰是世界第一聯賽時，皇馬頻頻捧起歐冠獎杯，塞維利亞則幾乎把歐洲聯賽變成了「塞維利亞杯」。</p>
+            </div>
+        </div>
+
+        <!-- Section 4: Controversy & Challenges (Abstract Cards) -->
+        <div class="mb-32">
+            <h2 class="font-display font-black text-4xl mb-12 flex items-center gap-4">
+                <span class="w-12 h-1 bg-expression-red"></span> 場外的「灑狗血」劇情
+            </h2>
+            <div class="space-y-4">
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="flex-1 glass-panel p-8 distorted-card hover:bg-white/5 transition-colors">
+                        <span class="text-expression-red font-black text-4xl mb-4 block">01</span>
+                        <h4 class="text-xl font-bold mb-2 text-white">特巴斯的薪資上限</h4>
+                        <p class="text-gray-400 text-sm">經濟學角度的「緊箍咒」，也是梅西等球星出走的間接導火索。</p>
+                    </div>
+                    <div class="flex-1 glass-panel p-8 distorted-card hover:bg-white/5 transition-colors md:mt-8">
+                        <span class="text-expression-red font-black text-4xl mb-4 block">02</span>
+                        <h4 class="text-xl font-bold mb-2 text-white">內格雷拉案</h4>
+                        <p class="text-gray-400 text-sm">聯賽誠信機制面臨崩塌式的考驗，反思職業體育在金錢面前的脆弱。</p>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="flex-1 glass-panel p-8 distorted-card hover:bg-white/5 transition-colors">
+                        <span class="text-expression-red font-black text-4xl mb-4 block">03</span>
+                        <h4 class="text-xl font-bold mb-2 text-white">社會縮影與歧視</h4>
+                        <p class="text-gray-400 text-sm">維尼修斯遭遇的事件，是西班牙乃至整個歐洲社會矛盾的寫照。</p>
+                    </div>
+                    <div class="flex-1 glass-panel p-8 distorted-card hover:bg-white/5 transition-colors md:mt-8">
+                        <span class="text-expression-red font-black text-4xl mb-4 block">04</span>
+                        <h4 class="text-xl font-bold mb-2 text-white">豪門的背叛？</h4>
+                        <p class="text-gray-400 text-sm">皇馬、巴薩與聯盟在「歐超聯賽」上的對立，揭露利益分配的撕裂。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Future Outlook -->
+        <div class="mb-32 bg-deep-navy/30 rounded-[3rem] p-12 relative overflow-hidden border border-white/5">
+            <div class="absolute right-0 bottom-0 opacity-10 animate-float">
+                <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#F5C451" d="M47.7,-64.1C60.1,-55.9,67.3,-40.1,72.1,-24.1C76.9,-8,79.3,8.3,75.4,23.3C71.5,38.2,61.3,51.8,48.2,60.8C35.2,69.8,19.3,74.2,3.3,69.7C-12.8,65.2,-29,51.8,-41.8,40.1C-54.6,28.4,-64.1,18.4,-69.3,5.1C-74.4,-8.1,-75.3,-24.7,-68.1,-38.2C-61,-51.7,-45.8,-62.1,-30.9,-69C-16.1,-75.9,-1.6,-79.3,13.7,-77.3C29,-75.4,47.7,-64.1,47.7,-64.1Z" transform="translate(100 100)" />
+                </svg>
+            </div>
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="font-display font-black text-4xl mb-8">未來展望：<br><span class="text-la-liga-gold">數位大整型</span></h2>
+                    <div class="space-y-6 text-gray-300">
+                        <p>面對英超的財大氣粗，西甲選擇了另一條路：<span class="text-white font-bold">品牌化與數位化。</span></p>
+                        <p>從 EA Sports 合作、AI 數據轉播，到 CVC 投資計畫，西甲正試圖帶動整體的基礎設施升級。甚至計畫將賽事搬到美國，展現擴張野心。</p>
+                    </div>
+                </div>
+                <div class="flex flex-col justify-center">
+                    <div class="accent-border border-l-shadow-blue bg-shadow-blue/5 p-8 rounded-r-2xl">
+                        <h4 class="font-bold text-white mb-4">最純粹的堅持：青訓</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed italic">
+                            「當英超在轉會市場揮金如土時，西甲依靠拉馬西亞（La Masia）等體系，持續產出高品質球員。這是一種知識份子的哲學：內生性的增長，往往比外延性的消費更持久。」
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conclusion -->
+        <footer class="text-center py-20 border-t border-white/10">
+            <h2 class="font-display font-black text-4xl md:text-6xl mb-8 tracking-tighter">在西甲，每一場球賽都是一場藝術秀</h2>
+            <p class="max-w-2xl mx-auto text-gray-400 mb-12 text-lg">
+                這不僅僅是腳尖上的藝術，更是人類智慧與熱情的終極演繹。準備好加入這場派對了嗎？
+            </p>
+            <div class="inline-flex flex-col items-center">
+                <button class="bg-la-liga-gold text-black font-black px-12 py-4 text-xl hover:scale-110 transition-transform distorted-card">
+                    START WATCHING NOW
+                </button>
+                <div class="mt-12 text-[10px] tracking-[0.4em] text-gray-600 uppercase font-bold">
+                    Curated by M11408907 • 2024 Expressionist Series
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Interactive Scroll Indicator -->
+    <div class="fixed bottom-8 right-8 mix-blend-difference pointer-events-none">
+        <div class="flex items-center gap-4 origin-right -rotate-90 translate-y-[-100%]">
+            <span class="text-[10px] tracking-[0.5em] text-white uppercase font-bold">Scroll to Explore</span>
+            <div class="h-px w-24 bg-white/30 relative">
+                <div class="absolute left-0 top-0 h-full bg-expression-red w-1/3 animate-pulse"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple scroll animation trigger
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-slide-up');
+                    entry.target.style.opacity = "1";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-panel, h2, .accent-border').forEach(el => {
+            el.style.opacity = "0";
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
